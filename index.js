@@ -18,18 +18,17 @@ const monster = {
 
 function renderCharacter(data) {
     const {elementId, name, avatar, health, diceRoll, diceCount } = data;
-    let diceHtml = '';
+    const diceHtml = diceRoll.map(function(diceNum) {
+        return `<div class="dice">${diceNum}</div>`
+    }).join("");
 
-// CHALLENGE
-// Update this for loop so it uses a value from the
-// new diceRoll array to render out the dice so the
-// wizard's dice have values of 3, 1 and 4, and the
-// orc's single dice has a value of 2.
-
-
-for (let i = 0; i < diceRoll.length; i++) {
-    diceHtml += `<div class="dice">${diceRoll[i]}</div>`
-}
+/*
+CHALLENGE
+1. Instead of the for loop, map over the diceRoll array
+and save the new array to diceHTML.
+2. Remember to deal with the commas between dice.
+3. What keyword should be used to declare diceHTML?
+*/
 
     document.getElementById(elementId).innerHTML =
     `<div class="character-card">
